@@ -1,0 +1,25 @@
+@import './root.css';
+
+.title-nav{
+    font-family: var(--font-primary);
+    font-size: 5rem;
+}
+.right-side-nav{
+    min-width: 241.5px;
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+.dropdown-btn{
+    border: 1px solid rgba(108, 117, 125, 0.603);
+    padding: 0.5rem 0.6rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+.right-side-nav>i:nth-child(2){
+    padding: 0.5rem;
+}
+.navlink-custom{
+    text-decoration: none;
+}

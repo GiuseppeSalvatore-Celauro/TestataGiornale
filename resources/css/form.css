@@ -1,0 +1,54 @@
+@import './root.css';
+
+input{
+    border: none;
+}
+input:focus-visible{
+    outline: none;
+    transform: scale(1.1);
+}
+.form-login-custom{
+    border-bottom: 1px solid rgb(108, 117, 125);
+    width: 100%;
+    padding: 0.5rem;
+    transition: 0.5s;
+}
+.btnform-bg-custom{
+    background: rgba(108, 117, 125, 0.552);
+    color: white;
+    transition: 0.5s;
+    margin-top: 2rem;
+}
+.btnform-bg-custom:hover{
+    border: 1px solid rgb(108, 117, 125);
+    transform: scale(1.1);
+}
+
+.link-form-custom{
+    text-decoration: none;
+}
+.link-form-custom:hover{
+    text-decoration: underline;
+}
+.form-textarea-custom{
+    border: 1px solid rgba(108, 117, 125, 0.552);
+    resize: none;
+    font-size: 2rem;
+}
+textarea:focus-visible{
+    outline: none;
+}
+.form-btn-custom{
+    background: var(--color-blue);
+    color: var(--color-white);
+    border: 1px solid rgba(108, 117, 125, 0.552);
+    padding: 0.5rem 1rem;
+    transition: 0.5s;
+    font-size: 1.2rem;
+}
+
+.form-btn-custom:hover{
+    background: var(--color-white);
+    color: var(--color-blue);
+    transform: scale(1.1);
+}

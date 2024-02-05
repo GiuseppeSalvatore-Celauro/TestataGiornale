@@ -1,0 +1,23 @@
+@import './root.css';
+
+*{
+    box-sizing: border-box;
+    font-family: var(--font-secondary);
+    font-size: var(--root-fs);
+    font-weight: var(--w400);
+    color: var(--color-black);
+    /* background-color: var(--color-white); */
+}
+
+.font-primary{
+    font-family: var(--font-primary);
+}
+.font-secondary{
+    font-family: var(--font-secondary);
+}
+.w400{
+    font-family: var(--w400);
+}
+.w700{
+    font-family: var(--w700);
+}

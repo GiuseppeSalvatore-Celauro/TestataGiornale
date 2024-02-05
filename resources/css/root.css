@@ -1,0 +1,11 @@
+:root{
+    --color-red: hsla(352.72,98.1%,41.18%,1);
+    --color-black: hsla(0,0%,7.06%,1);
+    --color-white: hsla(0,0%,100%,1);
+    --color-blue: rgb(86, 123, 149);
+    --font-primary: "Girassol", serif;
+    --font-secondary: "Nanum Gothic Coding", monospace;
+    --w400: 400;
+    --w700: 700;
+    --root-fs: 14px;
+}
