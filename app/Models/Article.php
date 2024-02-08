@@ -26,4 +26,13 @@ class Article extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function textFormatter($x){
+        $string = '';
+        for ($i=0; $i < strlen($x); $i++) {
+            if($i <= 19){
+                $string .= $x[$i];
+            }
+        }
+        return $string . ' ...';
+    }
 }

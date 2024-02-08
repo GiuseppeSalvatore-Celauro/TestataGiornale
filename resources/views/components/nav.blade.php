@@ -22,7 +22,7 @@
               <i class="fa-solid fa-bars"></i>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="{{route('article.index')}}">Notizie</a></li>
             @auth
             <li><a class="dropdown-item" href="{{route('article.create')}}">Inserisci articolo</a></li>
             @endauth
@@ -46,8 +46,14 @@
     </div>
   </nav>
 {{-- con categorie di back-end --}}
-  <nav class="navbar navbar-expand-lg ">
-    <div class="container">
-
+  <nav class="navbar navbar-expand-lg">
+    <div class="container justify-content-center border-top pt-4">
+        <div class="cat">
+          <ul class="d-flex gap-5 text-center">
+            @foreach ($categories as $category)
+                <li><a href="{{route('article.categoryIndex', $category)}}" class="navlink-custom text-dark">{{$category->name}}</a></li>
+            @endforeach
+          </ul>
+        </div>
     </div>
   </nav>

@@ -23,3 +23,13 @@
 .navlink-custom{
     text-decoration: none;
 }
+.cat>ul{
+    list-style: none;
+}
+.cat>ul>li{
+    transition: 0.5s;
+}
+.cat>ul>li:hover{
+    transform: scale(1.1);
+    text-decoration: underline;
+}

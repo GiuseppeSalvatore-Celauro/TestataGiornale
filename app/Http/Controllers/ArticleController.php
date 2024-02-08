@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -14,7 +15,17 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::orderBy('created_at', 'desc')->get();
+        return view('article.index', compact('articles'));
+    }
+
+    public function categoryIndex(Category $category){
+        $articles = $category->articles;
+        return view('article.categoryIndex', compact('articles'));
+    }
+    public function personalIndex(User $user){
+        $articles = $user->articles;
+        return view('article.categoryIndex', compact('articles'));
     }
 
     /**
@@ -36,7 +47,7 @@ class ArticleController extends Controller
                     'title' => $request['title'],
                     'subtitle' => $request['subtitle'],
                     'body' => $request['body'],
-                    'img' => $request->has('img') ? $request->file('img')->store('public') : './img/default.png',
+                    'img' => $request->has('img') ? $request->file('img')->store('public') : 'img/default.jpg',
                     'category_id' => $request['category'],
                     'user_id' => Auth::user()->id,
                 ]
@@ -53,7 +64,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('article.show', compact('article'));
     }
 
     /**

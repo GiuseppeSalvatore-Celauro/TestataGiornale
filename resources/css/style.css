@@ -15,6 +15,9 @@
 .font-secondary{
     font-family: var(--font-secondary);
 }
+.font-lato{
+    font-family: var(--font-lato);
+}
 .w400{
     font-family: var(--w400);
 }
