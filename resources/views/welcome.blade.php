@@ -12,13 +12,13 @@
             </div>
         </div>
     @endif
-
+    @if (count($LastArticles) > 0)
     <div class="container">
-        <hr>
+        <hr class="text-secondary">
         <div class="row mt-5 px-4">
             @foreach ($LastArticles as $article)
                 @if ($loop->first)
-                <div class="col-8 border-end border-secondary">
+                <div class="col-8 border-end border-color-secondary">
                     <div class="border d-flex justify-content-between">
                         <div class="col-5 p-4">
                             <a href="{{route('article.categoryIndex', $article->category->id)}}" class="link-form-custom text-danger">
@@ -71,4 +71,5 @@
             </div>
         </div>
     </div>
+    @endif
 </x-layout>

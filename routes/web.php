@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\RevisorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +26,28 @@ Route::get('/article/index', [ArticleController::class, 'index'])->name('article
 Route::get('/article/show/{article}', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/categoryIndex/{category}', [ArticleController::class, 'categoryIndex'])->name('article.categoryIndex');
 Route::get('/article/personalIndex/{user}', [ArticleController::class, 'personalIndex'])->name('article.personalIndex');
+
+// Rotta per lavora con noi
+Route::get('/workwithus', [PublicController::class, 'WorkWithUs'])->middleware('auth')->name('work.WorkWithUs');
+Route::post('/work/send/data', [PublicController::class, 'sendRequest'])->middleware('auth')->name('workWithUs');
+
+//rotte admin
+
+Route::middleware('AdminMiddleware')->group(function(){
+    Route::get('/admin/dashboard', [AdminController::class, 'tables'])->name('admin.tables');
+    Route::get('/admin/{user}/setAdmin', [AdminController::class, 'setAdmin'])->name('adminCheck');
+    Route::get('/admin/{user}/setRevisor', [AdminController::class, 'setRevisor'])->name('revisoreCheck');
+    Route::get('/admin/{user}/setWriter', [AdminController::class, 'setWriter'])->name('scrittoreCheck');
+    Route::get('/admin/{user}/unsetAdmin', [AdminController::class, 'unsetAdmin'])->name('adminCheckFalse');
+    Route::get('/admin/{user}/unsetRevisor', [AdminController::class, 'unsetRevisor'])->name('revisoreCheckFalse');
+    Route::get('/admin/{user}/unsetWriter', [AdminController::class, 'unsetWriter'])->name('scrittoreCheckFalse');
+});
+
+
+// rotte revisore
+
+Route::middleware('RevisorMiddleware')->group(function(){
+    Route::get('/revisor/dashboard', [RevisorController::class, 'tables'])->name('revisor.tables');
+    Route::get('/revisor/{article}/setAccepted', [RevisorController::class, 'setAccepted'])->name('article.setAccepted');
+    Route::get('/revisor/{article}/setDeclined', [RevisorController::class, 'setDeclined'])->name('article.setDeclined');
+});
