@@ -15,6 +15,9 @@ class RevisorController extends Controller
         return view('revisor.dashboard', compact('ArticlesNull', 'ArticlesTrue', 'ArticlesFalse'));
     }
 
+    public function show(Article $article){
+        return view('revisor.show', compact('article'));
+    }
     public function setAccepted(Article $article){
         $article->is_accepted = true;
         $article->save();

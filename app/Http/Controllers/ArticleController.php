@@ -31,33 +31,9 @@ class ArticleController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('article.create');
-    }
-
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        if ($request['category'] > 0) {
-            Article::create(
-                [
-                    'title' => $request['title'],
-                    'subtitle' => $request['subtitle'],
-                    'body' => $request['body'],
-                    'img' => $request->has('img') ? $request->file('img')->store('public') : 'img/default.jpg',
-                    'category_id' => $request['category'],
-                    'user_id' => Auth::user()->id,
-                ]
-            );
-            return redirect()->route('home')->with('message', 'Articolo inserito con successo');
-        }else{
-            return redirect()->back()->with('message', 'Devi scegliere una categoria');
-        }
-
-    }
 
     /**
      * Display the specified resource.

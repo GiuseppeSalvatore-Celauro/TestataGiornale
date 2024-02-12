@@ -5,6 +5,7 @@ use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\WriterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,7 @@ use App\Http\Controllers\RevisorController;
 Route::get('/', [PublicController::class, 'home'])->name('home');
 
 // Rotte articoli
-Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
-Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
+Route::get('/article/search', [PublicController::class, 'search'])->name('article.search');
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/article/show/{article}', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/categoryIndex/{category}', [ArticleController::class, 'categoryIndex'])->name('article.categoryIndex');
@@ -48,6 +48,13 @@ Route::middleware('AdminMiddleware')->group(function(){
 
 Route::middleware('RevisorMiddleware')->group(function(){
     Route::get('/revisor/dashboard', [RevisorController::class, 'tables'])->name('revisor.tables');
+    Route::get('/revisor/{article}', [RevisorController::class, 'show'])->name('article.revisorShow');
     Route::get('/revisor/{article}/setAccepted', [RevisorController::class, 'setAccepted'])->name('article.setAccepted');
     Route::get('/revisor/{article}/setDeclined', [RevisorController::class, 'setDeclined'])->name('article.setDeclined');
+});
+
+// Rotte Scrittore
+Route::middleware('WriterMiddleware')->group(function(){
+    Route::get('/article/create', [WriterController::class, 'create'])->name('article.create');
+    Route::post('/article/store', [WriterController::class, 'store'])->name('article.store');
 });

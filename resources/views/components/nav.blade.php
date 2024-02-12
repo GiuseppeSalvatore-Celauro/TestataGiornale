@@ -59,7 +59,7 @@
         <div class="right-side-nav">
           @auth
             <div class="mt-1 me-3">
-              <p>Benvenuto, {{Auth::user()->name}}</p>
+              <p id="welcome">Benvenuto, {{Auth::user()->name}}</p>
             </div>
           @endauth
           <div class="dropdown me-3">
@@ -69,7 +69,9 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="{{route('article.index')}}">Notizie</a></li>
               @auth
-                <li><a class="dropdown-item" href="{{route('article.create')}}">Inserisci articolo</a></li>
+                @if (Auth::user()->is_writer)
+                  <li><a class="dropdown-item" href="{{route('article.create')}}">Inserisci articolo</a></li>
+                @endif
                 <li><a class="dropdown-item" href="{{route('work.WorkWithUs')}}">Lavora con noi</a></li>
                   @if (Auth::user()->is_admin)
                     <li><a class="dropdown-item" href="{{route('admin.tables')}}">Accedi alla tua area di lavoro</a></li>
@@ -91,13 +93,16 @@
               @endguest
             </ul>
           </div>
-          <div class="mt-2">
-            <i class="fa-solid fa-magnifying-glass"></i>
+          <div class="mb-2 gap-4 d-flex align-items-center ">
+            <form action="{{route('article.search')}}" method="get">
+              <input type="text" name="searchText" id='search-bar' class="form-search d-none" placeholder="Cerca...">
+              <button id="search-btn-none" class="btn d-none"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <i id="search-btn" class="fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
       </div>
     </nav>
-  {{-- con categorie di back-end --}}
     <nav class="navbar navbar-expand-lg">
       <div class="container justify-content-center border-top pt-4">
           <div class="cat">

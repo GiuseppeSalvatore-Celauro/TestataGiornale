@@ -33,3 +33,13 @@
     transform: scale(1.1);
     text-decoration: underline;
 }
+.form-search{
+    border: 1px solid rgba(108, 117, 125, 0.603);
+    border-radius: 5px;
+    transition: 0.5s;
+    width: 112px;
+    height: 21px;
+}
+.form-search:focus{
+    transform: scale(1.2);
+}

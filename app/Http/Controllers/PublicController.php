@@ -53,4 +53,11 @@ class PublicController extends Controller
 
         return redirect()->back()->with('message', 'La tua richiesta è andata a buon fine, verrai ricontattato al piu presto');
     }
+
+    public function search(Request $request){
+        $searchText = $request->input('searchText');
+        $articles = Article::search($searchText)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
+
+        return view('article.searchItems', compact('articles', 'searchText'));
+    }
 }

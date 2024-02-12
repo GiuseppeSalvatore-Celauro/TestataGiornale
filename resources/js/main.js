@@ -75,3 +75,15 @@ function formatDate(date){
 }
 
 dateh4.innerHTML = formatDate(date)
+
+let searchBtn = document.querySelector('#search-btn')
+let searchBar = document.querySelector('#search-bar')
+let welcome = document.querySelector('#welcome')
+let searchBtnNone = document.querySelector('#search-btn-none')
+
+searchBtn.addEventListener('click', ()=>{
+    searchBtn.classList.toggle('d-none')
+    searchBar.classList.toggle('d-none')
+    searchBtnNone.classList.toggle('d-none')
+    welcome.classList.toggle('d-none')
+})

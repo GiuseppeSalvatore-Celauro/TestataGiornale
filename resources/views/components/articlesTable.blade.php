@@ -18,18 +18,21 @@
                 @switch($type)
                     @case('Null')
                           <td>
-                              <a href="{{route('article.setAccepted', compact('article'))}}" class="btn btn-success">Accetta</a>
-                              <a href="{{route('article.setDeclined', compact('article'))}}" class="btn btn-danger">Rifiuta</a>
+                              {{-- <a href="{{route('article.setAccepted', compact('article'))}}" class="btn btn-success">Accetta</a>
+                              <a href="{{route('article.setDeclined', compact('article'))}}" class="btn btn-danger">Rifiuta</a> --}}
+                              <a href="{{route('article.revisorShow', compact('article'))}}" class="btn btn-primary">Ispeziona l'articolo</a>
                           </td>
                         @break
                     @case('True')
                           <td>
-                            <a href="{{route('article.setDeclined', compact('article'))}}" class="btn btn-danger">Rifiuta</a>
+                            {{-- <a href="{{route('article.setDeclined', compact('article'))}}" class="btn btn-danger">Rifiuta</a> --}}
+                            <a href="{{route('article.revisorShow', compact('article'))}}" class="btn btn-primary">Ispeziona l'articolo</a>
                           </td>
                         @break
                     @case('False')
                           <td>
-                            <a href="{{route('article.setAccepted', compact('article'))}}" class="btn btn-success">Accetta</a>
+                            {{-- <a href="{{route('article.setAccepted', compact('article'))}}" class="btn btn-success">Accetta</a> --}}
+                            <a href="{{route('article.revisorShow', compact('article'))}}" class="btn btn-primary">Ispeziona l'articolo</a>
                           </td>
                         @break
                 @endswitch
