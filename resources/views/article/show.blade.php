@@ -2,7 +2,17 @@
     <div class="container border  p-5 mt-5">
         <div class="row">
             <div class="col-12">
-                <a href="" class="link-form-custom text-danger"> <p class="my-2 text-danger"><i class="{{$article->category->icons}} text-danger me-2"></i>{{$article->category->name}}</p></a>
+                <div class="d-flex justify-content-between">
+                    <a href="{{route('article.categoryIndex', $article->category->id)}}" class="link-form-custom text-danger">
+                        <p class="text-danger fs-5"><i class="{{$article->category->icons}} text-danger me-2"></i>{{$article->category->name}}</p>
+                    </a>
+                    <p class="text-secondary">
+                        Tags:
+                        @foreach ($article->tags as $tag)
+                            #{{$tag->name}}
+                        @endforeach
+                    </p>
+                </div>
                 <h1 class="display-4 fw-bold font-lato">{{$article->title}}</h1>
                 <h3 class="display-6 fw-bold text-secondary opacity-50 font-lato">{{$article->subtitle}}</h3>
                 <hr>

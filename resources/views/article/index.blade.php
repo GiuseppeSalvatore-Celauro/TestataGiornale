@@ -21,7 +21,14 @@
                                 <p class="text-secondary">{{$article->textFormatter($article->body)}}</p>
                                 <div class="d-flex flex-column align-items-end mt-4">
                                     <p class="text-dark mb-0">Articolo redatto da:<span class="h5"><a href="{{route('article.personalIndex', $article->user->id)}}" class="link-form-custom text-dark">{{$article->user->surname}} {{$article->user->name}}</a></span></p>
-                                    <a href="{{route('article.show', compact('article'))}}" class="link-form-custom text-primary mt-3">Leggi di più</a>
+                                    <div class="d-flex justify-content-between w-100">
+                                        <p class="text-secondary">
+                                            @foreach ($article->tags as $tag)
+                                                #{{$tag->name}}
+                                            @endforeach
+                                        </p>
+                                        <a href="{{route('article.show', compact('article'))}}" class="link-form-custom">Leggi di più</a>
+                                    </div>
                                 </div>
                           </div>
                         </div>

@@ -41,6 +41,12 @@ Route::middleware('AdminMiddleware')->group(function(){
     Route::get('/admin/{user}/unsetAdmin', [AdminController::class, 'unsetAdmin'])->name('adminCheckFalse');
     Route::get('/admin/{user}/unsetRevisor', [AdminController::class, 'unsetRevisor'])->name('revisoreCheckFalse');
     Route::get('/admin/{user}/unsetWriter', [AdminController::class, 'unsetWriter'])->name('scrittoreCheckFalse');
+    Route::put('/admin/{tag}/EditTag', [AdminController::class, 'editTags'])->name('aggiornamento.tags');
+    Route::delete('/admin/{tag}/DeleteTag', [AdminController::class, 'deleteTags'])->name('elimina.tags');
+    Route::put('/admin/{category}/EditCat', [AdminController::class, 'editCats'])->name('aggiornamento.cat');
+    // da implementare
+    // Route::delete('/admin/{category}/DeleteCat', [AdminController::class, 'deleteCats'])->name('elimina.cat');
+    Route::post('/admin/create/category', [AdminController::class, 'createCat'])->name('admin.addCat');
 });
 
 

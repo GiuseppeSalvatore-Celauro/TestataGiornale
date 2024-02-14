@@ -36,8 +36,12 @@
                         </select>
                     </div>
                     <div class="mb-3 d-flex flex-column gap-3">
-                        <label for="body" class="text-secondary">Inserisci il tuo annuncio</label>
+                        <label for="body" class="text-secondary">Inserisci il tuo articolo</label>
                         <textarea name="body" id="body" cols="30" rows="15" class="form-textarea-custom"></textarea>
+                    </div>
+                    <div class="mb-3 d-flex flex-column gap-3">
+                        <input type="text" name="tags" class="form-login-custom" placeholder="Inserisci qui i tags riguardante il tuo annuncio">
+                        <p class="text-secondary" aria-disabled="true">Separare ogni tag con una virgola, grazie.</p>
                     </div>
                     <div class="mb-3 d-flex flex-column gap-3">
                         <label for="body" class="text-secondary">Inseisci una immagine riguardante il tuo

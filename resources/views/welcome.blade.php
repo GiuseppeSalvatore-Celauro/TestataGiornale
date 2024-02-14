@@ -21,9 +21,16 @@
                 <div class="col-8 border-end border-color-secondary">
                     <div class="border d-flex justify-content-between">
                         <div class="col-5 p-4">
-                            <a href="{{route('article.categoryIndex', $article->category->id)}}" class="link-form-custom text-danger">
-                                <p class="my-2 text-danger"><i class="{{$article->category->icons}} text-danger me-2"></i>{{$article->category->name}}</p>
-                            </a>
+                            <div class="d-flex justify-content-between">
+                                <a href="{{route('article.categoryIndex', $article->category->id)}}" class="link-form-custom text-danger">
+                                    <p class="text-danger"><i class="{{$article->category->icons}} text-danger me-2"></i>{{$article->category->name}}</p>
+                                </a>
+                                <p class="text-secondary">
+                                    @foreach ($article->tags as $tag)
+                                        #{{$tag->name}}
+                                    @endforeach
+                                </p>
+                            </div>
                             <h4 class="m-0 fw-bold">{{$article->title}}</h4>
                             <h6>{{$article->subtitle}}</h6>
                             <hr>
@@ -63,7 +70,14 @@
                                 <a href="{{route('article.personalIndex', $article->user->id)}}" class="link-form-custom text-dark">
                                     <p class="text-dark mb-0">{{$article->user->surname}} {{$article->user->name}}</p>
                                 </a>
-                                <a href="{{route('article.show', compact('article'))}}" class="link-form-custom">Leggi di più</a>
+                                <div class="d-flex justify-content-between w-100">
+                                    <p class="text-secondary">
+                                        @foreach ($article->tags as $tag)
+                                            #{{$tag->name}}
+                                        @endforeach
+                                    </p>
+                                    <a href="{{route('article.show', compact('article'))}}" class="link-form-custom">Leggi di più</a>
+                                </div>
                             </div>
                         </div>
                     @endif
