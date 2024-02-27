@@ -5,9 +5,7 @@
         <th scope="col">Nome</th>
         <th scope="col">Quantità articoli collegati a questo tag</th>
         <th scope="col">Aggiorna</th>
-        @if ($metaData == 'tags')
         <th scope="col">Cancella</th>
-        @endif
       </tr>
     </thead>
     <tbody>
@@ -39,6 +37,13 @@
                         @method('put')
                         <input type="text" placeholder="Nome nuovo tag" name="name" class="">
                         <button type="submit" class="btn btn-primary">Aggiorna</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{route('elimina.cat', ['category'=> $metaTipo])}}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">Elimina Cat</button>
                     </form>
                 </td>
             @endif

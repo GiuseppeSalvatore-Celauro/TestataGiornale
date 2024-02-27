@@ -45,7 +45,7 @@ Route::middleware('AdminMiddleware')->group(function(){
     Route::delete('/admin/{tag}/DeleteTag', [AdminController::class, 'deleteTags'])->name('elimina.tags');
     Route::put('/admin/{category}/EditCat', [AdminController::class, 'editCats'])->name('aggiornamento.cat');
     // da implementare
-    // Route::delete('/admin/{category}/DeleteCat', [AdminController::class, 'deleteCats'])->name('elimina.cat');
+    Route::delete('/admin/{category}/DeleteCat', [AdminController::class, 'deleteCats'])->name('elimina.cat');
     Route::post('/admin/create/category', [AdminController::class, 'createCat'])->name('admin.addCat');
 });
 
@@ -63,4 +63,10 @@ Route::middleware('RevisorMiddleware')->group(function(){
 Route::middleware('WriterMiddleware')->group(function(){
     Route::get('/article/create', [WriterController::class, 'create'])->name('article.create');
     Route::post('/article/store', [WriterController::class, 'store'])->name('article.store');
+    Route::get('/writer/table', [WriterController::class, 'index'])->name('writer.tables');
+    Route::get('/writer/{article}/show', [WriterController::class, 'show'])->name('writer.show');
+    Route::delete('/writer/{article}/delete', [WriterController::class, 'delete'])->name('writer.delete');
+    Route::get('/writer/{article}/edit', [WriterController::class, 'edit'])->name('writer.edit');
+    Route::put('/writer/{article}/update', [WriterController::class, 'update'])->name('writer.update');
+    Route::get('/revisor/{article}/setNull', [WriterController::class, 'setNull'])->name('article.setNull');
 });

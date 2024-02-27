@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -88,6 +89,14 @@ class AdminController extends Controller
             'name' => $request->category,
             'icons' => 'fa-solid fa-circle-question'
         ]);
+        return redirect()->back();
+    }
+
+    public function deleteCats(Category $category){
+        foreach($category->articles as $article){
+            $article->update(['category_id' => NULL]);
+        }
+        $category->delete();
         return redirect()->back();
     }
 }
