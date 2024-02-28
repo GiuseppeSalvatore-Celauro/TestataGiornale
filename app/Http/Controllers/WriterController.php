@@ -18,7 +18,6 @@ class WriterController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->file('img'));
         if ($request['category'] > 0) {
             $article = Article::create(
                 [

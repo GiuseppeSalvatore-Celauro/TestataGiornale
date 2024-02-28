@@ -16,16 +16,16 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
                         @foreach ($personalArticle as $article)
+                      <tr>
                             <th scope="row">{{$article->id}}</th>
                             <td>{{$article->title}}</td>
                             <td>{{$article->category->name}}</td>
                             <td class="text-end">
                                 <a href="{{route('writer.show', compact('article'))}}" class="btn btn-primary">Visualizza l'articolo completo</a>
                             </td>
-                        @endforeach
                       </tr>
+                        @endforeach
                     </tbody>
                   </table>
             </div>

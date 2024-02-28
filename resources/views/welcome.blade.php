@@ -26,9 +26,9 @@
         <div class="row mt-5 px-4">
             @foreach ($LastArticles as $article)
                 @if ($loop->first)
-                <div class="col-8 border-end border-color-secondary mt-2">
+                <div class="col-12 col-md-8 border-end border-color-secondary mt-2">
                     <div class="border d-flex justify-content-between">
-                        <div class="col-5 p-4">
+                        <div class="col-12 col-md-5 p-4">
                             <div class="d-flex justify-content-between">
                                 <a href="{{route('article.categoryIndex', $article->category->id)}}" class="link-form-custom text-danger">
                                     <p class="text-danger"><i class="{{$article->category->icons}} text-danger me-2"></i>{{$article->category->name}}</p>
@@ -53,7 +53,7 @@
                             </div>
                             <p class="mt-4">Creato il: <span>{{$article->created_at->format('d/m/y')}}</span></p>
                         </div>
-                        <div class="col-7">
+                        <div class="col-7 d-none d-md-block">
                             <div class="first-article">
                                 <img src="{{Storage::url($article->img)}}" alt="" class="img-fluid w-100">
                             </div>
@@ -62,7 +62,7 @@
                 </div>
                 @endif
             @endforeach
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 @foreach ($LastArticles as $article)
                     @if (!$loop->first)
                         <div class="secondary-card border p-3">
@@ -107,7 +107,7 @@
     </div>
     <div class="container">
         <div class="row mt-5 px-4">
-            <div class="col-4 d-flex flex-column gap-2  pt-3">
+            <div class="col-12 col-md-4 d-flex flex-column gap-2  pt-3">
                 @foreach ($WorldArticles as $article)
                     <div class="secondary-card border p-3">
                         <div class="d-flex justify-content-between">
@@ -134,7 +134,7 @@
                     </div>
                     @endforeach
                 </div>
-            <div class="col-8 d-flex justify-content-center align-items-center">
+            <div class="col-12 col-md-8 d-flex justify-content-center align-items-center">
                 @foreach ($WorldArticles as $article)
                     @if ($loop->first)
                         <img src="{{Storage::url($article->img)}}" alt="" class="w-100">
@@ -157,14 +157,14 @@
     </div>
     <div class="container">
         <div class="row mt-5 px-4">
-            <div class="col-8 d-flex justify-content-center align-items-center">
+            <div class="col-12 col-md-8 d-flex justify-content-center align-items-center">
                 @foreach ($EconomyArticles as $article)
                     @if ($loop->first)
                         <img src="{{Storage::url($article->img)}}" alt="" class="w-100">
                     @endif
                 @endforeach
             </div>
-            <div class="col-4 d-flex flex-column gap-2  pt-3">
+            <div class="col-12 col-md-4 d-flex flex-column gap-2  pt-3">
                 @foreach ($EconomyArticles as $article)
                     <div class="secondary-card border p-3">
                         <div class="d-flex justify-content-between">
@@ -206,7 +206,7 @@
     </div>
     <div class="container">
         <div class="row mt-5 px-4">
-            <div class="col-4 d-flex flex-column gap-2  pt-3">
+            <div class="col-12 col-md-4 d-flex flex-column gap-2  pt-3">
                 @foreach ($CinemaArticles as $article)
                     <div class="secondary-card border p-3">
                         <div class="d-flex justify-content-between">
@@ -233,7 +233,7 @@
                     </div>
                     @endforeach
                 </div>
-            <div class="col-8 d-flex justify-content-center align-items-center">
+            <div class="col-12 col-md-8 d-flex justify-content-center align-items-center">
                 @foreach ($CinemaArticles as $article)
                     @if ($loop->first)
                         <img src="{{Storage::url($article->img)}}" alt="" class="w-100">
